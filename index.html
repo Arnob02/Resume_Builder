@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Resume Generator</title>
+  </head>
+  <body>
+    <div class="container" id="cv-form">
+      <h1 class="text-center my-2">Resume Generator</h1>
+      <p class="text-center">Make Your Own Resume</p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- first col -->
+          <h3>Personal Information</h3>
+
+          <div class="form-group">
+            <label for="nameField">Your Name</label>
+            <input
+              type="text"
+              id="nameField"
+              placeholder="Enter Name"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group mt-2">
+            <label for="contactField">Your Contact</label>
+            <input
+              type="text"
+              id="contactField"
+              placeholder="Enter Contact"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="addressField">Your Address</label>
+            <textarea
+              id="addressField"
+              placeholder="Enter Address"
+              class="form-control"
+              rows="5"
+            ></textarea>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="">Select Your Photo</label>
+            <input id="imgField" type="file" class="form-control" />
+          </div>
+
+          <p class="text-secondary my-3">Important Links</p>
+
+          <div class="form-group mt-2">
+            <label for="fbField">Facebook Link</label>
+            <input
+              type="text"
+              id="fbField"
+              placeholder="Enter Here"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="instaField">Instagram Link</label>
+            <input
+              type="text"
+              id="instaField"
+              placeholder="Enter Here"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="linkedField">Linkedin Link</label>
+            <input
+              type="text"
+              id="linkedField"
+              placeholder="Enter Here"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!-- second col -->
+          <h3>Professional Information</h3>
+
+          <div class="form-group mt-2">
+            <label for="">Objective</label>
+            <textarea
+              id="objectiveField"
+              rows="5"
+              placeholder="Enter Here"
+              class="form-control"
+            ></textarea>
+          </div>
+
+          <div class="form-group mt-2" id="we">
+            <label for="">Work Experience</label>
+            <textarea
+              placeholder="Enter Here"
+              class="form-control weField"
+              rows="3"
+            ></textarea>
+
+            <!-- new textarea -->
+
+            <div class="container text-center my-2" id="weAddButton">
+              <button onclick="addNewWEField()" class="btn btn-primary btn-sm">
+                Add
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group mt-2" id="aq">
+            <label for="">Academic Qualification</label>
+            <textarea
+              placeholder="Enter Here"
+              class="form-control eqField"
+              rows="3"
+            ></textarea>
+
+            <div class="container text-center my-2" id="aqAddButton">
+              <button onclick="addNewAQField()" class="btn btn-primary btn-sm">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container text-center mt-3">
+        <button onclick="generateCV()" class="btn btn-primary btn-lg">
+          Generate Resume
+        </button>
+      </div>
+    </div>
+
+    <!-- cv template -->
+
+    <div class="container" id="cv-template">
+      <div class="row">
+        <div class="col-md-4 text-center py-5 background">
+          <!-- first col -->
+          <img
+            src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1690652552~exp=1690653152~hmac=7fac95a4454eeed9845b0e24a30f8e74a038744e2e41503d48957082afd2ee8d"
+            alt=""
+            class="img-fluid myimg"
+            id="imgTemplate"
+          />
+
+          <div class="container">
+            <p id="nameT1">Arnob Deb</p>
+            <p id="contactT">+8801701487769, +88017014727571</p>
+            <p id="addressT">1/6 Shahjahan Road, Mohammadpur</p>
+            <hr />
+            <p>
+              <a id="fbT" href="#1">https://www.facebook.com/ArnobDeb</a>
+            </p>
+            <p>
+              <a id="instaT" href="#1">https://www.instagram.com/DengueMosha</a>
+            </p>
+            <p>
+              <a id="linkedT" href="#1">https://www.linkedin.com/Dokandar</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-8 py-5">
+          <!-- second col -->
+
+          <h1 id="nameT2" class="text-center" style="font-weight: 980">
+            Arnob Deb
+          </h1>
+          <!-- objective card -->
+          <div class="card mt-4">
+            <div class="card-header background">
+              <h3>Objective</h3>
+            </div>
+            <div class="card-body">
+              <p id="objectiveT">
+                My name is Arnob Deb, and I am passionate about coding and
+                software development. I am currently a final year student,
+                pursuing CS Degree at BRAC University. As an enthusiastic
+                programmer, I always find joy in creating innovative solutions
+                and exploring the vast world of technology. Currently, I am
+                working on an exciting project called the "Resume Builder." This
+                project aims to empower individuals like me to effortlessly
+                create professional and impressive resumes that showcase their
+                skills, experiences, and achievements.
+              </p>
+            </div>
+          </div>
+
+          <!-- work expe -->
+          <div class="card mt-4">
+            <div class="card-header background">
+              <h3>Work Experience</h3>
+            </div>
+            <div class="card-body">
+              <ul id="weT">
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, obcaecati.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, obcaecati.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, obcaecati.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- acamedic qualification -->
+          <div class="card mt-4">
+            <div class="card-header background">
+              <h3>Academic Qualification</h3>
+            </div>
+            <div class="card-body">
+              <ul id="aqT">
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, obcaecati.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, obcaecati.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, obcaecati.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="container mt-3 text-center">
+            <button onclick="printCV()" class="btn background">
+              Print Resume
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
